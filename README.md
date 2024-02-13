@@ -270,7 +270,7 @@ const users = [
 ]
 
 await sql`
-  update users set name = update_data.name, (age = update_data.age)::int
+  update users set name = update_data.name, age = (update_data.age)::int
   from (values ${sql(users)}) as update_data (id, name, age)
   where users.id = (update_data.id)::int
   returning users.id, users.name, users.age
