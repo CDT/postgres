@@ -290,7 +290,7 @@ const users = await sql`
 
 or
 ```js
-const [{ a, b, c }] => await sql`
+const [{ a, b, c }] = await sql`
   select
     *
   from (values ${ sql(['a', 'b', 'c']) }) as x(a, b, c)
